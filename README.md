@@ -8,13 +8,13 @@ A lightweight DataFrame-like library implemented in C++ for basic data analysis 
 - Display `n` number of rows from the dataset
 - Compute the mean of numerical columns
 - Filter data based on column values (e.g., Department = "HR")
-- Add new data entries through user input (with option to skip using -1)
+- Add new data entries through user input (with option to skip using `-1`)
 - Real-time updates to the CSV file after data insertion
 
 ## 🛠️ Technologies Used
 
 - C++
-- STL (vector, map, string)
+- STL (`vector`, `map`, `string`)
 - File I/O
 - Command-line interface
 
@@ -27,6 +27,7 @@ df.show(5);
 double avg = df.mean("Salary");
 DataFrame hr = df.filter("Department", "HR");
 df.addRowInteractively(); // Prompts user input to add a row
+```
 
 📁 Files Structure
 
@@ -37,6 +38,7 @@ data.csv – Sample dataset
 
 📸 Sample Run
 
+```
 Enter number of rows to display: 5
 == First 5 Rows ==
 ...
@@ -50,6 +52,8 @@ Enter number of rows to display: 5
 Add a new entry? Enter -1 to skip.
 Name: Shreyansh
 ...
+
+```
 
 👨‍💻 Author
 
