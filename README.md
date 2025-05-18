@@ -1,47 +1,58 @@
-DataFrame C++ Library
-A lightweight C++ DataFrame library for handling tabular data from CSV files.
-Inspired by Python’s pandas, this project provides essential data manipulation and analysis capabilities directly in C++.
+# C++ DataFrame Library
 
-Features
+A lightweight DataFrame-like library implemented in C++ for basic data analysis and CSV manipulation.
 
-Load CSV data with headers into an in-memory DataFrame.
-Display a user-defined number of rows.
-Calculate basic statistics such as mean for numeric columns.
-Filter rows based on column values.
-Add new rows dynamically to the DataFrame.
-Save updated data back to CSV files.
-Motivation
+## 🚀 Features
 
-This project aims to provide a simple, yet functional DataFrame implementation in C++ for educational purposes and small data processing tasks, bridging the gap between fast C++ execution and convenient tabular data handling.
+- Load and parse `.csv` files
+- Display `n` number of rows from the dataset
+- Compute the mean of numerical columns
+- Filter data based on column values (e.g., Department = "HR")
+- Add new data entries through user input (with option to skip using -1)
+- Real-time updates to the CSV file after data insertion
 
-Usage
+## 🛠️ Technologies Used
 
-Load your CSV file into the DataFrame.
-View and analyze your data using functions like show(), mean(), and filter().
-Add new rows with addRow() and save updates back to disk with saveCSV().
-Example
+- C++
+- STL (vector, map, string)
+- File I/O
+- Command-line interface
 
+## 🧪 Sample Functionalities
+
+```cpp
 DataFrame df;
 df.loadCSV("data.csv");
+df.show(5);
+double avg = df.mean("Salary");
+DataFrame hr = df.filter("Department", "HR");
+df.addRowInteractively(); // Prompts user input to add a row
 
-df.show(10);
-cout << "Mean Salary: " << df.mean("Salary") << endl;
+📁 Files Structure
 
-auto engineering = df.filter("Department", "Engineering");
-engineering.show();
+DataFrame.h – Header file for the class definition
+DataFrame.cpp – Functionality implementations
+main.cpp – Sample driver code for usage
+data.csv – Sample dataset
 
-vector<string> newRow = {"Ananya", "29", "HR", "58000"};
-df.addRow(newRow);
-df.saveCSV("data.csv");
+📸 Sample Run
+
+Enter number of rows to display: 5
+== First 5 Rows ==
+...
+
+== Mean of 'Salary' ==
+56200.00
+
+== Filter where Department == Marketing ==
+...
+
+Add a new entry? Enter -1 to skip.
+Name: Shreyansh
+...
+
+👨‍💻 Author
+
+Shreyansh Mishra
 
 
-Requirements
-
-C++11 or higher
-Standard C++ library only (no external dependencies)
-Future Improvements
-
-Support for more statistical operations.
-Column type detection (numeric, categorical).
-More flexible filtering options.
-Support for writing and reading other file formats.
